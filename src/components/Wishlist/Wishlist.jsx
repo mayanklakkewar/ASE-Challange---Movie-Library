@@ -1,7 +1,7 @@
 import React from "react";
 
 function Wishlist() {
-  return <div>Wishlist</div>;
+  return <div>Watchlist</div>;
 }
 
 export default Wishlist;
