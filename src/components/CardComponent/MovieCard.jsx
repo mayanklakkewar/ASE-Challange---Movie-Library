@@ -1,23 +1,25 @@
 import React from "react";
 
-function MovieCard({image, title, summary}) {
+function MovieCard({
+  imgUrl = "https://thewowstyle.com/wp-content/uploads/2015/01/nature-images..jpg",
+  title = "Hay",
+  overview = "hi",
+}) {
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm ">
-        <a href="#">
+        <div>
           <img
             className="rounded-t-lg"
-            src = {`${image}`}
+            src={`https://image.tmdb.org/t/p/w500${imgUrl}`}
             alt=""
           />
-        </a>
+        </div>
         <div className="p-5">
-          <h5 className="mb-2 font-medium font-bold tracking-tight text-gray-900">
+          <h5 className="mb-2 font-bold tracking-tight text-gray-900">
             {title}
           </h5>
-          <p className="mb-3 text-xs text-gray-700">
-            {summary}
-          </p>
+          <p className="mb-3 text-xs text-gray-700">{overview}</p>
           <a
             href="#"
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
