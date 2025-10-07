@@ -90,7 +90,7 @@ function Home() {
       {/* //Home Content */}
       <div className="py-3 pb-13">
         <div className="">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-4 gap-4">
             {data.map((movie) => (
               <MovieCard
                 key={movie.id}
