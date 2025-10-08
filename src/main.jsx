@@ -1,10 +1,14 @@
-import { StrictMode, useState } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./App.jsx";
-import { MovieProvider } from "./Context/index.js";
+import { createRoot } from "react-dom/client"; // React 18+ way to create root
+import "./index.css"; // Global CSS styles
+import App from "./App.jsx"; // Main App component containing routes
+import { MovieProvider } from "./Context/index.js"; // Context provider for global movie state
 
-createRoot(document.getElementById("root")).render(
+// 🔹 Create a root for React to render the app
+const root = createRoot(document.getElementById("root"));
+
+// 🔹 Render the app inside the MovieProvider
+// This allows all components inside App to access the movie context
+root.render(
   <MovieProvider>
     <App />
   </MovieProvider>
