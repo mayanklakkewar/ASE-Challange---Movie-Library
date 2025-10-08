@@ -1,14 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MovieProvider, useMovie } from "../../Context";
+import { useState } from "react";
 
 function MovieCard({
+  id,
   imgUrl = "https://www.freeiconspng.com/uploads/no-image-icon-10.png",
   title = "Hay",
   overview = "hi",
 }) {
+  const { movie, addMovie } = useMovie();
+
   const imageUrl = imgUrl
     ? `https://image.tmdb.org/t/p/w500${imgUrl}`
     : `https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg`;
+
+  const addtoWishlist = (id, imageUrl, title, overview) => {
+    alert(`${title} added to your Watchlist`);
+    console.log(id, imageUrl, title, overview);
+    addMovie(id, imageUrl, title, overview);
+  };
+
   return (
     <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm ">
@@ -21,7 +33,7 @@ function MovieCard({
           </h5>
           <p className="mb-3 text-xs text-gray-700">{overview}</p>
           <Link
-            to="/wishlist"
+            onClick={() => addtoWishlist(id, imageUrl, title, overview)}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
           >
             Add to Watchlist
